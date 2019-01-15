@@ -2,4 +2,4 @@
 
 To get started, install gym using pip.
 
-~~~~pip install gym~~~~
+`pip install gym
