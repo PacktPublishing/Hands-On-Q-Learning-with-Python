@@ -2,17 +2,13 @@
 
 import gym
 env = gym.make('Taxi-v2')
-env.reset()
 
 #create a game loop and take random actions
 
-for _ in range(1000):
-    env.render()
-    env.step(env.action_space.sample()) 
+observation = env.reset()
+reward = 0
+while reward != 20:
+    observation, reward, done, info = env.step(env.action_space.sample())
+env.render()
 
-    
-    
-    
-    
-    
     
