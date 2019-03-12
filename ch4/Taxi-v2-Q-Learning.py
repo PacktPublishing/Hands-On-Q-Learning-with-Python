@@ -10,12 +10,17 @@ Q = np.zeros([env.observation_space.n, env.action_space.n])
 gamma = 0.1
 alpha = 0.1
 epsilon = 0.1
+epsilon_decay = 0.99 #decay factor 
+
+
 total_epochs = 0
-episodes = 100
+episodes = 10000
 
 for episode in range(episodes):
     epochs = 0
     reward = 0
+    epsilon = epsilon * epsilon_decay #decay step
+
     state = env.reset()
     
     while reward != 20:
