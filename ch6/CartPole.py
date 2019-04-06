@@ -60,7 +60,7 @@ class DQN:
         self.memory.append((state, action, reward, next_state, done))
 
 def cartpole():
-    env = gym.make("CartPole-v0")
+    env = gym.make("CartPole-v1")
     observation_space, action_space = env.observation_space.shape[0], env.action_space.n
     
     dqn = DQN(observation_space, action_space)
