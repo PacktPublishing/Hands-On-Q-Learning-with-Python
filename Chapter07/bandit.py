@@ -13,5 +13,6 @@ total_reward = 0
 for view in range(total_views):
     ad = random.randrange(num_ads)
     ad_list.append(ad)
-    reward = dataset.values[view, ad]
+    reward = df.values[view, ad]
     total_reward = total_reward + reward
+

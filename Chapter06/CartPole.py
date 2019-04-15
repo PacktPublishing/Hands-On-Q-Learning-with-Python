@@ -44,9 +44,9 @@ class DQN:
         return np.argmax(q_values[0])
 
     def update(self):
-        if len(self.memory) < batch_size:
+        if len(self.memory) < self.batch_size:
             return
-        batch = random.sample(self.memory, batch_size)
+        batch = random.sample(self.memory, self.batch_size)
         for state, action, reward, next_state, done in batch:
             q_update = reward
             if not done:
