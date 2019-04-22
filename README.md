@@ -38,9 +38,9 @@ If you are a machine learning developer, engineer, or professional who wants to 
 
 With the following software and hardware list you can run all code files present in the book (Chapter 1-8).
 ### Software and Hardware List
-| Chapter | Software required | OS required |
-| -------- | ------------------------------------ | ----------------------------------- |
-| 1-8 | Python 3.5+, OpenAI Gym, Keras, TensorFlow(tentative)  |  |
+| Chapter | Software required | 
+| -------- | ------------------------------------ | 
+| 1-8 | Python 3.5+, OpenAI Gym, Keras, TensorFlow(tentative)  |  
 
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/9781789345803_ColorImages.pdf).
@@ -50,13 +50,9 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Hands-On Transfer Learning with Python  [[Packt]](https://prod.packtpub.com/in/big-data-and-business-intelligence/hands-transfer-learning-python?utm_source=github&utm_medium=repository&utm_campaign=) [[Amazon]](https://www.amazon.com/dp/1-788-83130-6)
 
-*  [[Packt]]() [[Amazon]](https://www.amazon.com/dp/)
-
-*  [[Packt]]() [[Amazon]](https://www.amazon.com/dp/)
-
 ## Get to Know the Author
 **Nazia Habib**
-Nazia Habib is a data scientist who has worked in a variety of industries to generate predictive analytics solutions for diverse groups of stakeholders. She is an expert in building solutions to optimization problems under conditions of uncertainty. Her projects range from predicting user behavior and engagement with social media apps to designing adaptive testing software. Her ongoing specialization is in designing custom reinforcement learning algorithms for modeling control problems with limited inputs that converge to optimal solutions.
+is a data scientist who has worked in a variety of industries to generate predictive analytics solutions for diverse groups of stakeholders. She is an expert in building solutions to optimization problems under conditions of uncertainty. Her projects range from predicting user behavior and engagement with social media apps to designing adaptive testing software. Her ongoing specialization is in designing custom reinforcement learning algorithms for modeling control problems with limited inputs that converge to optimal solutions.
 
 
 ## Other books by the authors
