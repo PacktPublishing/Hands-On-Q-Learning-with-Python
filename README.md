@@ -54,8 +54,5 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 **Nazia Habib**
 is a data scientist who has worked in a variety of industries to generate predictive analytics solutions for diverse groups of stakeholders. She is an expert in building solutions to optimization problems under conditions of uncertainty. Her projects range from predicting user behavior and engagement with social media apps to designing adaptive testing software. Her ongoing specialization is in designing custom reinforcement learning algorithms for modeling control problems with limited inputs that converge to optimal solutions.
 
-
-## Other books by the authors
-
 ### Suggestions and Feedback
 [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
