@@ -17,7 +17,7 @@ Create and deploy model-free learning and deep Q-learning agents with TensorFlow
 Choose and optimize a Q-Network’s learning parameters and fine-tune its performance 
 Discover real-world applications and use cases of Q-learning 
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1-789-34580-4) today!
+If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1789345804) today!
 
 <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
 alt="https://www.packtpub.com/" border="5" /></a>
@@ -46,9 +46,9 @@ With the following software and hardware list you can run all code files present
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/9781789345803_ColorImages.pdf).
 
 ### Related products
-* Hands-On Meta Learning with Python  [[Packt]](https://prod.packtpub.com/in/big-data-and-business-intelligence/hands-meta-learning-python?utm_source=github&utm_medium=repository&utm_campaign=) [[Amazon]](https://www.amazon.com/dp/1-789-53420-8)
+* Hands-On Meta Learning with Python  [[Packt]](https://prod.packtpub.com/in/big-data-and-business-intelligence/hands-meta-learning-python?utm_source=github&utm_medium=repository&utm_campaign=) [[Amazon]](https://www.amazon.com/dp/1789534208)
 
-* Hands-On Transfer Learning with Python  [[Packt]](https://prod.packtpub.com/in/big-data-and-business-intelligence/hands-transfer-learning-python?utm_source=github&utm_medium=repository&utm_campaign=) [[Amazon]](https://www.amazon.com/dp/1-788-83130-6)
+* Hands-On Transfer Learning with Python  [[Packt]](https://prod.packtpub.com/in/big-data-and-business-intelligence/hands-transfer-learning-python?utm_source=github&utm_medium=repository&utm_campaign=) [[Amazon]](https://www.amazon.com/dp/1788831306)
 
 ## Get to Know the Author
 **Nazia Habib**
