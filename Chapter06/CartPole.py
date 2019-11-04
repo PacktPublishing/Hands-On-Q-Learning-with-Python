@@ -64,14 +64,15 @@ def cartpole():
     observation_space, action_space = env.observation_space.shape[0], env.action_space.n
     
     dqn = DQN(observation_space, action_space)
-    run = 0
+    epoch = 0
     while True:
-        run += 1
+        score = 0
+        epoch += 1
         state = env.reset()
         state = np.reshape(state, [1, observation_space])
         step = 0
         while True:
-            step += 1
+            score += 1
             action = dqn.choose_action(state)
             next_state, reward, done, info = env.step(action)
             reward = reward if not done else -reward
@@ -79,7 +80,7 @@ def cartpole():
             dqn.remember(state, action, reward, next_state, done)
             state = next_state
             if done:
-                print ("Epoch: " + str(run) + " Score: " + str(step))
+                print ("Epoch: " + str(epoch) + " Score: " + str(score))
                 break
             dqn.update()
 
