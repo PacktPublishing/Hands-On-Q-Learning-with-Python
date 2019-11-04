@@ -40,20 +40,20 @@ class DQN:
     def choose_action(self, state):
         if np.random.rand() < self.epsilon:
             return random.randrange(self.action_space)
-        q_values = self.model.predict(state)
-        return np.argmax(q_values[0])
+        q = self.model.predict(state)
+        return np.argmax(q[0])
 
     def update(self):
         if len(self.memory) < self.batch_size:
             return
         batch = random.sample(self.memory, self.batch_size)
         for state, action, reward, next_state, done in batch:
-            q_update = reward
+            update = reward
             if not done:
-                q_update = self.alpha * (reward + self.gamma * np.max(self.model.predict(next_state)[0]))
-            q_values = self.model.predict(state)
-            q_values[0][action] = q_update
-            self.model.fit(state, q_values, verbose=0)
+                update = self.alpha * (reward + self.gamma * np.max(self.model.predict(next_state)[0]))
+            q = self.model.predict(state)
+            q[0][action] = update
+            self.model.fit(state, q, verbose=0)
         self.epsilon *= epsilon_decay
 
     def remember(self, state, action, reward, next_state, done):
