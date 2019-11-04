@@ -44,8 +44,8 @@ class DQN:
         return np.argmax(q[0])
 
     def update(self):
-        batch = random.sample(self.memory, self.batch_size)
-        for state, action, reward, next_state, done in batch:
+        mem_sample = random.sample(self.memory, self.batch_size)
+        for state, action, reward, next_state, done in mem_sample:
             update_value = reward
             if not done:
                 update_value = self.alpha * (reward + self.gamma * np.max(self.model.predict(next_state)[0]))
