@@ -48,11 +48,11 @@ class DQN:
             return
         batch = random.sample(self.memory, self.batch_size)
         for state, action, reward, next_state, done in batch:
-            update = reward
+            update_value = reward
             if not done:
-                update = self.alpha * (reward + self.gamma * np.max(self.model.predict(next_state)[0]))
+                update_value = self.alpha * (reward + self.gamma * np.max(self.model.predict(next_state)[0]))
             q = self.model.predict(state)
-            q[0][action] = update
+            q[0][action] = update_value
             self.model.fit(state, q, verbose=0)
         self.epsilon *= epsilon_decay
 
@@ -70,7 +70,6 @@ def cartpole():
         epoch += 1
         state = env.reset()
         state = np.reshape(state, [1, observation_space])
-        step = 0
         while True:
             score += 1
             action = dqn.choose_action(state)
