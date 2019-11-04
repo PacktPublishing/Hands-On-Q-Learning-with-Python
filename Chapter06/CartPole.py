@@ -56,7 +56,7 @@ class DQN:
             self.model.fit(state, q, verbose=0)
         self.epsilon *= epsilon_decay
 
-    def remember(self, state, action, reward, next_state, done):
+    def memory_update(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
 
 def cartpole():
@@ -76,7 +76,7 @@ def cartpole():
             next_state, reward, done, info = env.step(action)
             reward = reward if not done else -reward
             next_state = np.reshape(next_state, [1, observation_space])
-            dqn.remember(state, action, reward, next_state, done)
+            dqn.memory_update(state, action, reward, next_state, done)
             state = next_state
             if done:
                 print ("Epoch: " + str(epoch) + " Score: " + str(score))
