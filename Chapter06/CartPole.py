@@ -60,9 +60,9 @@ class DQN:
 def cartpole():
     env = gym.make("CartPole-v1")
     observation_space, action_space = env.observation_space.shape[0], env.action_space.n
-    
-    dqn = DQN(observation_space, action_space)
     epoch = 0
+    dqn = DQN(observation_space, action_space)
+    
     while True:
         score = 0
         epoch += 1
