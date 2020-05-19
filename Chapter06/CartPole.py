@@ -63,7 +63,7 @@ def cartpole():
     epoch = 0
     dqn = DQN(observation_space, action_space)
     
-    while True:
+    while not done:
         score = 0
         epoch += 1
         state = env.reset()
@@ -77,7 +77,7 @@ def cartpole():
             dqn.memory_update(state, action, reward, next_state, done)
             state = next_state
             if done:
-                print ("Epoch: " + str(epoch) + " Score: " + str(score))
+                print ("Round: " + str(epoch) + " Score: " + str(score))
                 break
             dqn.update()
 
