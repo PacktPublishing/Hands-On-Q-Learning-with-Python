@@ -1,59 +1,66 @@
 import gym
-import numpy as np
-import random
-import tensorflow as tf
+import agents
 
 env = gym.make('Taxi-v2')
+agent = agents.QLearnAgent(states=env.observation_space.n, actions=env.action_space.n)
 
-tf.reset_default_graph()
-inputs = tf.placeholder(shape=[1, env.observation_space.n], dtype=tf.float32)
-weights = tf.Variable(tf.random_uniform([env.observation_space.n,env.action_space.n], 0, 0.01))
-q_out = tf.matmul(inputs, weights)
-predict = tf.argmax(q_out,1)
+episodes = 10000
+totalSteps = 0
+totalReward = 0
 
-next_q = tf.placeholder(shape=[1,env.action_space.n],dtype=tf.float32)
-loss = tf.reduce_sum(tf.square(next_q - q_out))
-trainer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
-loss_update = trainer.minimize(loss)
-init = tf.global_variables_initializer()
-
-total_epochs = 0
-total_rewards = 0
-
-gamma = 0.7
-epsilon = 0.2
-epsilon_decay = .99
-episodes = 100
-
-with tf.Session() as sess:
-    sess.run(init)
-    for episode in range(episodes):
-        state = env.reset()
-        rewards_this_episode = 0
-        epochs = 0
-
-        done = False
+for episode in range(episodes):
+    
+    state = env.reset()
+    reward = 0
+    steps = 0
+    done = False
+    
+    while not done:
+        action = agent.act(state) 
+        next_state, reward, done, info = env.step(action)
+        agent.learn(state, action, reward, next_state, _)
+        state = next_state
         
-        while not done:
-            action, q = sess.run([predict,q_out], feed_dict={inputs:np.identity(env.observation_space.n)[state:state + 1]})
-            
-            if np.random.rand(1) < epsilon:
-                action[0] = env.action_space.sample()
-                
-            next_state, reward, done, info = env.step(action[0])
-            
-            curr_q = sess.run(q_out, feed_dict = {inputs:np.identity(env.observation_space.n)[next_state:next_state+1]})
-            max_next_q = np.max(curr_q)
-            target_q = q
-            target_q[0, action[0]] = reward + gamma * max_next_q
-            
-            info, new_weights = sess.run([loss_update, weights], feed_dict={inputs:np.identity(env.observation_space.n)[state:state+1], next_q:target_q})
-            rewards_this_episode += reward
-            state = next_state
-            epochs += 1
-            
-        epsilon = epsilon * epsilon_decay
-        total_epochs += epochs
-        total_rewards += rewards_this_episode
+        steps += 1
+        totalReward += reward
+
+    totalSteps += steps
+
+print("Average timesteps taken: {}".format(totalSteps/episodes))
+print("Average reward: {}".format(totalReward/episodes))
+print("Total reward: {}".format(totalReward))
+
+env = gym.make('Taxi-v2')
+agent = agents.SarsaAgent(states=env.observation_space.n, actions=env.action_space.n)
+
+episodes = 10000
+totalSteps = 0
+totalReward = 0
+
+for episode in range(episodes):
+    
+    state = env.reset()
+    reward = 0
+    steps = 0
+    done = False
+    
+    while not done:
         
-print ("Success rate: " + str(total_rewards/episodes))
+        action = agent.act(state)
+        if agent.lastAction is not None:
+            agent.learn(agent.lastState, agent.lastAction, agent.lastReward, state, action)
+            
+        agent.lastAction = action
+        agent.lastState = state
+        
+        state, reward, done, info = env.step(action)
+        
+        agent.lastReward = reward
+        totalReward += reward
+
+        steps += 1
+    totalSteps += steps
+
+print("Average timesteps taken: {}".format(totalSteps/episodes))
+print("Average reward: {}".format(totalReward/episodes))
+print("Total reward: {}".format(totalReward))
